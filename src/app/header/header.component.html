@@ -1,0 +1,48 @@
+<header>
+	<mat-toolbar color="primary">
+		<div class="col-md-10">NW PROJECT</div>
+		<div class="col-md-2">
+			<button mat-icon-button [mat-menu-trigger-for]="menu">
+					<i class="fa fa-language fa-2x" aria-hidden="true"></i>
+			</button>
+			<button mat-icon-button [mat-menu-trigger-for]="menu">
+				<span class="fa-stack fa-2x has-badge" data-count="2">
+					<i class="fa fa-bell-o fa-stack-1x"></i>
+				</span>
+			</button>
+			<button mat-icon-button [mat-menu-trigger-for]="admin">
+					<i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+					&nbsp;Admin&nbsp;
+					<i class="fa fa-caret-down fa-1x" aria-hidden="true"></i>
+			</button>
+		</div>
+	</mat-toolbar>
+	<mat-menu x-position="before" #menu="matMenu">
+		<button mat-menu-item *ngFor="let l of lang" (click)="changeLang(l)">{{l}}</button>
+	</mat-menu>
+	<mat-menu x-position="before" #admin="matMenu">
+		hi
+	</mat-menu>
+	<mat-toolbar class="linkbar">
+		<div class="container">
+			<div class="col-md-12">
+				<a href="#">Hi</a>
+			</div>
+		</div>
+	</mat-toolbar>
+	<mat-toolbar>
+			<a href="#">Hi</a>
+	</mat-toolbar>
+	<mat-card>
+		<button mat-button>All</button>
+		<button mat-raised-button>Of</button>
+		<button mat-raised-button color="primary">The</button>
+		<button mat-raised-button color="accent">Buttons</button>
+	</mat-card>
+
+	<span class="done">
+		<button mat-fab>
+			<mat-icon>check circle</mat-icon>
+		</button>
+	</span>
+</header>

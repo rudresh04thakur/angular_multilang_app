@@ -1,0 +1,44 @@
+mat-card {
+    max-width: 80%;
+    margin: 2em auto;
+    text-align: center;
+  }
+  
+  mat-toolbar-row {
+    justify-content: space-between;
+  }
+  
+  .done {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+  }
+  .fa-stack {
+    position: static !important;
+    display: inline-block;
+    width: 2em;
+    height: 1em;
+    line-height: 0em;
+    vertical-align: middle;
+  }
+  /* on ex2 if you include bootstrap v3 css the number is a rounded circle with the .has-badge class */
+  .fa-stack[data-count]:after{
+    position:absolute;
+    right:0%;
+    top:1%;
+    content: attr(data-count);
+    font-size:30%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: white;
+    background:rgba(255,0,0,.85);
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+  }
+.linkbar{
+  height: 25px !important;
+  padding: 5px 0px;
+}

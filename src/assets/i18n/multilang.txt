@@ -1,0 +1,77 @@
+
+1. Install via npm
+
+npm install @ngx-translate/core --save
+
+Add TranslateModule in app.module.ts imports
+
+import {TranslateModule} from '@ngx-translate/core';
+
+@NgModule({
+   declarations: [...],
+   imports     : [TranslateModule.forRoot(), ...],
+   exports      : [...],
+   providers   : [...],
+   bootstrap   : [AppComponent]
+})
+
+export class AppModule {}
+
+app.components.ts
+
+import {Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+
+@Component({
+  selector   : 'app',
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'hy']);
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
+  changeLang(lang: string) {
+    this.translate.use(lang);
+  }
+}
+
+app.component.html
+
+<nav>
+  <a [routerLink]="['/']">    
+    {{ "home" | translate }}
+  </a>
+  |
+  <a [routerLink]="['/about']">
+    {{ "about" | translate }}
+  </a>
+  |
+  <a [routerLink]="['/contact']">
+    {{ "contact" | translate }}
+  </a>
+</nav>
+<div class="lang-bar">
+  <a (click)="changeLang('en')">EN</a>
+  <a (click)="changeLang('hy')">ՀՅ</a>
+</div>
+
+Create i18n folder with translation files
+
+en.json
+
+{
+    "home" : "Home",
+    "about" : "About",
+    "contact" : "Contact"
+}
+
+hy.json
+
+{
+    "home" : "Գլխավոր",
+    "about" : "Մեր մասին",
+    "contact" : "Հետադարձ կապ"
+}
+
